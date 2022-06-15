@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>image/netease_title_icon.png</file>
+        <file>image/search_icon.png</file>
+    </qresource>
+</RCC>
