@@ -54,14 +54,14 @@ impl Header {
             let layout = QHBoxLayout::new_1a(&widget);
             layout.set_spacing(0);
             layout.set_contents_margins_4a(0, 24, 0, 24);
-            layout.add_spacing(7);
+            layout.add_spacing(26);
 
             let title_icon = QLabel::new();
             title_icon.set_fixed_height(45);
             title_icon.set_pixmap(&QPixmap::from_q_string(&QString::from_std_str(":/image/netease_title_icon.png")));
             layout.add_widget(&title_icon);
 
-            layout.add_spacing(86);
+            layout.add_spacing(122);
 
             let undo_button = QPushButton::new();
             undo_button.set_cursor(&QCursor::from_cursor_shape(CursorShape::PointingHandCursor));
