@@ -75,15 +75,6 @@ checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 
 [[package]]
 name = "cpp_core"
-version = "0.5.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e3a4fc172d5c7797a79e4f0e976bec2d4b80b39989d48d58386aaa9a533ff389"
-dependencies = [
- "libc",
-]
-
-[[package]]
-name = "cpp_core"
 version = "0.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5ebd6ba9742a158232afe2d07ec5d9d5d80d058baf700c5f9aa0e014fe3f24ad"
@@ -227,7 +218,7 @@ dependencies = [
 name = "netease_rust_music"
 version = "0.1.0"
 dependencies = [
- "cpp_core 0.5.1",
+ "cpp_core",
  "qt_core",
  "qt_gui",
  "qt_ritual_build",
@@ -281,7 +272,7 @@ version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "778fa84e9ee19abcf687ff0544f9bb9cd25059fe1ac479736c04475fd8d83a7a"
 dependencies = [
- "cpp_core 0.6.0",
+ "cpp_core",
  "proc-macro-hack",
  "qt_macros",
  "qt_ritual_build",
@@ -293,7 +284,7 @@ version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "dcc8366c6860b47084283cecc51397045e8401f492a98ac72b6bf1c7bad21837"
 dependencies = [
- "cpp_core 0.6.0",
+ "cpp_core",
  "qt_core",
  "qt_ritual_build",
 ]
@@ -340,7 +331,7 @@ version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8ad3bc61b5903878bb272e60080b1b4eb395ab1c6bf8808dbfb78b9fc63bc10c"
 dependencies = [
- "cpp_core 0.6.0",
+ "cpp_core",
  "qt_core",
  "qt_gui",
  "qt_macros",
@@ -354,7 +345,7 @@ version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d93cdec198a17bae150564e2da536bf3cb9df91aea63eb48b1b260b216a0b7f6"
 dependencies = [
- "cpp_core 0.6.0",
+ "cpp_core",
  "qt_core",
  "qt_gui",
  "qt_ritual_build",
