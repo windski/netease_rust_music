@@ -3,14 +3,14 @@ use cpp_core::{
     StaticUpcast, Ptr
 };
 use qt_core::{
-    QBox, QObject, SlotNoArgs, slot, QString, CursorShape
+    QBox, QObject, SlotNoArgs, slot, QString, CursorShape, qs
 };
 use qt_widgets::{
     QWidget, QHBoxLayout, QLineEdit, QPushButton, QLabel, QApplication
 };
 
 use qt_gui::{
-    QCursor, QPixmap
+    QCursor
 };
 
 use std::rc::Rc;
@@ -44,23 +44,34 @@ impl Header {
             let button_style = QString::from_std_str(
                 "QPushButton {\
                     border: none;\
-                    min-width: 36px;\
-                    min-height: 36px;\
+                    min-width: 24px;\
+                    max-width: 24px;\
+                    min-height: 24px;\
                     background-color: #d83b3b;\
-                    border-radius: 18px;\
+                    border-radius: 12px;\
+                }"
+            );
+            let close_button_style = QString::from_std_str(
+                "QPushButton {\
+                    border:none;\
+                    min-width: 24px;\
+                    max-width: 24px;\
+                    background-color: #d83b3b;\
                 }"
             );
             let edit_style = QString::from_std_str(
                 "QLineEdit {\
                     border: none;\
-                    min-width: 241px;\
-                    min-height: 48px;\
+                    min-width: 146px;\
+                    max-width: 146px;\
+                    min-height: 33px;\
                     background-color: #e13e3e;\
-                    border-radius: 24px;\
+                    border-radius: 15px;\
+                    padding-left: 16px;\
                 }\
                 QLineEdit::indicator {\
-                    width: 13px;
-                    height: 13px;
+                    width: 7px;
+                    height: 7px;
                 }"
             );
 
@@ -69,43 +80,61 @@ impl Header {
 
             let layout = QHBoxLayout::new_1a(&widget);
             layout.set_spacing(0);
-            layout.set_contents_margins_4a(0, 24, 0, 24);
-            layout.add_spacing(26);
+            layout.set_contents_margins_4a(0, 13, 0, 12);
+            layout.add_spacing(17);
 
             let title_icon = QLabel::new();
-            title_icon.set_fixed_height(45);
-            title_icon.set_pixmap(&QPixmap::from_q_string(&QString::from_std_str(":/image/netease_title_icon.png")));
+            title_icon.set_style_sheet(&qs(
+                "QLabel {\
+                    min-width: 128px;\
+                    max-width: 128px;\
+                    min-height: 30px;\
+                    max-height: 30px;\
+                    border-image: url(:/image/netease_title_icon.png);\
+                }"
+            ));
             layout.add_widget(&title_icon);
 
-            layout.add_spacing(122);
+            layout.add_spacing(83);
 
             let undo_button = QPushButton::new();
             undo_button.set_cursor(&QCursor::from_cursor_shape(CursorShape::PointingHandCursor));
             undo_button.set_style_sheet(&button_style);
             layout.add_widget(&undo_button);
 
-            layout.add_spacing(12);
+            layout.add_spacing(8);
 
             let redo_button = QPushButton::new();
             redo_button.set_cursor(&QCursor::from_cursor_shape(CursorShape::PointingHandCursor));
             redo_button.set_style_sheet(&button_style);
             layout.add_widget(&redo_button);
 
-            layout.add_spacing(18);
+            layout.add_spacing(12);
 
             let search_edit = QLineEdit::new();
             search_edit.set_style_sheet(&edit_style);
             layout.add_widget(&search_edit);
 
+            layout.add_spacing(447);
+
             let minimum_button = QPushButton::new();
+            minimum_button.set_style_sheet(&close_button_style);
             layout.add_widget(&minimum_button);
 
+            layout.add_spacing(12);
+
             let maximum_button = QPushButton::new();
+            maximum_button.set_style_sheet(&close_button_style);
             layout.add_widget(&maximum_button);
 
+            layout.add_spacing(12);
+
             let close_button = QPushButton::new();
+            close_button.set_style_sheet(&close_button_style);
             layout.add_widget(&close_button);
     
+            layout.add_spacing(20);
+
             let this = Rc::new(Self {
                 app,
                 widget,
